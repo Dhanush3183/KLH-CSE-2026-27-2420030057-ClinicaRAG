@@ -28,3 +28,65 @@ The proposed architecture involves rigorous text preprocessing using lemmatizati
 ---
 
 ## 🏗 System Architecture & Workflow
+
+┌─────────────────────────────────────────────────────────┐
+│                  📄 RAW CLINICAL NOTE                   │
+└────────────────────────────┬────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────┐
+│       ⚙️ PHASE 1: Preprocessing & Baseline Analysis       │
+│           (SpaCy Lemmatization, Bag-of-Words, TF-IDF)   │
+└────────────────────────────┬────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────┐
+│        🔬 PHASE 2: Clinical Transformer & NER           │
+│        (BioBERT / ClinicalBERT Entity Extraction)        │
+└────────────────────────────┬────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────┐
+│               📋 MEDICAL ENTITY JSON                    │
+│               (Symptoms, Drugs, Labs)                   │
+└────────────────────────────┬────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────┐
+│                 🔍 KNOWLEDGE RETRIEVAL                   │
+│               (ChromaDB + PubMed/MedQuAD)               │
+└────────────────────────────┬────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────┐
+│         🧠 PHASE 3: LLM Synthesis & Reasoning           │
+│               (Llama 3 8B RAG Pipeline)                 │
+└────────────────────────────┬────────────────────────────┘
+│
+▼
+┌─────────────────────────────────────────────────────────┐
+│               💻 PHASE 4: UI & Dashboard                │
+│                (Streamlit Web Interface)                │
+└─────────────────────────────────────────────────────────┘
+
+---
+
+## 📊 Datasets Used
+
+| Dataset | Description / Sourced From | URL Link |
+| :--- | :--- | :--- |
+| **MedQuAD** | Medical QA dataset (16,359 valid records from NIH) | [GitHub Repository](https://github.com/abachaa/MedQuAD) |
+| **PubMed / PubMedQA** | Biomedical question answering dataset & transcripts | [HuggingFace Dataset](https://huggingface.co/datasets/bigbio/pubmed_qa) |
+| **MIMIC-III** | De-identified ICU clinical database | [PhysioNet MIMIC-III](https://physionet.org/content/mimiciii/) |
+| **Clinical Notes** | Medical transcriptions raw / Fallback dataset | [Kaggle Dataset](https://www.kaggle.com/datasets/tboyle10/medicaltranscriptions) |
+
+---
+
+## 🛠️ Tech Stack & Core Technologies
+
+* **NLP & Processing:** SpaCy, NLTK, TF-IDF, Bag-of-Words[cite: 1, 2]
+* **Clinical Transformers (NER):** BioBERT, ClinicalBERT[cite: 1, 2]
+* **LLM Engine:** Llama 3 (8B - Quantized)[cite: 1, 2]
+* **Vector Database & RAG:** ChromaDB[cite: 1, 2]
+* **User Interface:** Streamlit Dashboard[cite: 1, 2]
+* **Programming Language:** Python 3.10+
