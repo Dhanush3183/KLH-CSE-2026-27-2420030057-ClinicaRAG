@@ -63,9 +63,9 @@ flowchart TD
 
 ## 🛠️ Tech Stack & Core Technologies
 
-* **NLP & Processing:** SpaCy, NLTK, TF-IDF, Bag-of-Words[cite: 1, 2]
-* **Clinical Transformers (NER):** BioBERT, ClinicalBERT[cite: 1, 2]
-* **LLM Engine:** Llama 3 (8B - Quantized)[cite: 1, 2]
-* **Vector Database & RAG:** ChromaDB[cite: 1, 2]
-* **User Interface:** Streamlit Dashboard[cite: 1, 2]
+* **NLP & Processing:** SpaCy, NLTK, TF-IDF, Bag-of-Words
+* **Clinical Transformers (NER):** BioBERT, ClinicalBERT
+* **LLM Engine:** Llama 3 (8B - Quantized)
+* **Vector Database & RAG:** ChromaDB
+* **User Interface:** Streamlit Dashboard
 * **Programming Language:** Python 3.10+
